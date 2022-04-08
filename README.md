@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @PRANAV-WALUNJ
-- 👀 I’m interested in software development
+- 👀 I’m a software developer
 - 🌱 I’m currently learning MCA
-- 💞️ I’m looking to collaborate on .NET
+- 💞️ I’m working on.NET
 - 📫 How to reach me -pranavwalunjwp@gmail.com
 
 <!---
