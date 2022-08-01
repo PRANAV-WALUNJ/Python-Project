@@ -1,0 +1,42 @@
+{% extends 'sports/index.html' %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+{% block main-content %}
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-4 content1">
+                <div class="card shadow">
+                    <div class="card-body"  style="font-family:Rajdhani">
+                        <h2 class="fs-1" style="font-family:Scheherazade">Welcome <span class="text-capitalize">{{request.user}}</span></h2>
+                        <br>
+                        <div class="d-grid"><a href="{% url 'profile' %}" class="btn btn-outline-dark  p-1 mx-auto m-1 btn-lg w-75">Profile</a></div><br>
+                        <div class="d-grid"><a href="{% url 'address' %}" class="btn {{active}} p-1 mx-auto m-1 btn-lg w-75">Address</a></div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 content2">
+                <div class="card shadow">
+                    <div class="card-body"  style="font-family:Rajdhani">
+                        <div class="row">
+                            {% for ad in add %}
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3>Address {{forloop.counter}}</h3>
+                                            <p>Name: {{ad.name}}</p>
+                                            <p>Locality: {{ad.locality}}</p>
+                                            <p>City: {{ad.city}}</p>
+                                            <p>State: {{ad.state}}</p>
+                                            <p>Pin Code: {{ad.zipcode}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main-content %}

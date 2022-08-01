@@ -1,0 +1,29 @@
+{% extends 'sports/index.html' %}
+{% load static %}
+{% block title%}Kid's Collection{% endblock title %}
+{% block main-content%}
+    <div class="container w-75" style="font-family: 'Scheherazade', sans-serif;">
+        <div class="row">
+            <div class="content1 flex justify-content-evenly row-6">
+                <div class="img-1 col-xs-12 col-lg-4">
+                    <a href="{% url 'kids_cloth' %}">
+                        <img src="{% static 'sports/images/KIDSCLOTH3.jpg' %}" class="img-thumbnail" height="100%" alt="">
+                        <h2>KIDS CLOTHING</h2>
+                    </a>
+                </div>
+                <div class="img-2 col-lg-4 mx-4">
+                    <a href="{% url 'kids_accss' %}">
+                        <img src="{% static 'sports/images/KIDSACCSS2.jpg' %}" class="img-thumbnail" height="75%" alt="">
+                        <h2>KIDS ACCESSORIES</h2>
+                    </a>
+                </div>
+                <div class="img-3 col-lg-4">
+                    <a href="{% url 'kids_foot' %}">
+                        <img src="{% static 'sports/images/KIDSFOOT2.jpg' %}" class="img-fluid" height="75%" alt="">
+                        <h2>KIDS FOOTWEARS</h2>
+                    </a>
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock main-content%}

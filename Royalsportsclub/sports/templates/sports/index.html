@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'sports/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'sports/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'sports/css/owl.carousel.min.css' %}"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@900&family=Martel:wght@900&family=Lilita+One:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>RoyalSportsClub</title>
+  </head>
+  <body>
+
+     <div class="d-flex bg-dark fixed-top" style="font-family:'Georgia';">
+          <div class="p-2  list-inline-item list-unstyled flex-grow-1 text-white" style="font-family: 'Georgia', cursive; font-size: 35px;"><a href="{% url 'home' %}" class="text-decoration-none text-white"><h3>RoyalSportsClub</a></div>
+          <div class="p-2 list-inline-item list-unstyled mt-2" id="navbarDropdownMenuLink">
+               {% if request.user.is_authenticated %}
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" aria-haspopup="true" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                         Hi, {{request.user.username|capfirst}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                         <li><a class="dropdown-item" href="{% url 'profile' %}">My Account</a></li>
+                         <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+                         <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+                         <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul> 
+                   
+                    {% comment %} <div class="p-2 list-inline-item list-unstyled mt-3" id="navbarDropdownMenuLink">
+                         <a href="{% url 'about' %}" class=" text-decoration-none text-white">
+                              About&nbsp;Us
+                         </a>
+                    </div>  {% endcomment %}
+               {% else %}
+                    <a class="nav-link text-white" href="{% url 'login' %}" role="button" aria-expanded="false">Login</a>
+               {% endif %}
+          </div>
+
+          <div class="p-2 list-inline-item list-unstyled mt-2" id="navbarDropdownMenuLink">
+               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" aria-haspopup="true" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sports</a>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'cricket' %}">Cricket</a></li>
+                    <li><a class="dropdown-item" href="{% url 'football' %}">football</a></li>
+                    <li><a class="dropdown-item" href="{% url 'badminton' %}">Badminton</a></li>
+                    <li><a class="dropdown-item" href="{% url 'basketball' %}">Basketball</a></li>
+               </ul> 
+          </div>                
+          <div class="p-2 list-inline-item list-unstyled mt-2" id="navbarDropdownMenuLink">
+               <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" aria-haspopup="true" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clothing</a>
+               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'men_info' %}">Men</a></li>
+                    <li><a class="dropdown-item" href="{% url 'women_info' %}">Women</a></li>
+                    <li><a class="dropdown-item" href="{% url 'kids_info' %}">Kids</a></li>
+               </ul> 
+          </div>    
+          <div class="p-2 list-inline-item list-unstyled mt-2">
+                    <input
+                    class="form-control bg-dark border border-light text-white"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"/>
+          </div>
+          <div class="list-inline-item list-unstyled float-end p-2">
+                    <button class="position-relative border border-dark bg-gradient me-3 mt-3">
+                    <a href="{% url 'showcart' %}" class="text-decoration-none text-dark">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-cart"
+                    viewBox="0 0 16 16"
+                    >
+                    <path
+                         d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                    />
+                    </svg>
+                    <span
+                    class="position-absolute badge bg-danger translate-middle top-0 start-100 rounded-pill"
+                    >{{totalitem}}</span
+                    ></a>
+                    </button>
+          </div>
+          </div>
+          
+     </div>
+     {% block main-content %} {% endblock main-content %}
+     {% block payment-gateway %} {% endblock payment-gateway %}
+
+     <footer class="shadow text-white" style="background-color: black; opacity:0.9; font-family:'Garamond';">
+          <div class="container flex justify-content-between row p-5 mx-auto">
+               <div class="content1 col-xs-12 col-sm-6 col-lg-3">
+                    <center><h4 class="text-center">QUICK LINKS</h4></center>
+                    <hr class="w-100 mx-auto"  style="margin-top: 0.6rem;">
+                    <ul>
+                    <li><h5><a href="{% url 'home' %}" class="text-decoration-none text-white">Home</a></h5></li>
+                    <li><h5><a href="{% url 'signup' %}" class="text-decoration-none text-white">Signup</a></h5></li>
+                    <li><h5><a href="{% url 'login' %}" class="text-decoration-none text-white">Login</a></h5></li>
+                    <li><h5><a href="{% url 'orders' %}" class="text-decoration-none text-white">Orders</a></h5></li>
+                    </ul>
+               </div>
+               <div class="content2 text-center row col-xs-12 col-sm-4 col-lg-4">
+                    <center><h4>CONTACT INFO</h4>
+                    <hr class="w-100 mx-auto">
+                    <div>
+                         <h5 class="text-warning">Address</h5>
+                         <p class="fs-6 text-start">Sector No.9, Spine Road,<br>Moshi Pradhikaran,Moshi<br> Pimpri-Chinchwad, Maharashtra 412105</p>
+                    </div>
+                    <div>
+                         <h5 class="text-warning">Phone</h5>
+                         <p class="fs-6 text-start">+91-8830529715</p>
+                    </div>
+                    <div>
+                         <h5 class="text-warning">Email</h5>
+                         <p class="fs-6 text-start">info@royalsports.com</p>
+                    </div></center>
+               </div>
+                    <div class="content3 text-center row col-xs-12 col-sm-6 col-lg-4">
+                         <center><h4>ROYAL SPORTS CLUB</h4>
+                         <hr class="w-100 mx-auto">
+                         <div><img src="{% static 'sports/images/about-img.jpg' %}" alt="runner" width="180" height="150"><br><br></div>
+                         <div><p class="text-warning">ROYAL SPORTS CLUB</p>Royal Sports Family is always<br> ready to turn your dream<br>into reality.</div></center>       
+                    </div>
+               </div>
+          </div>
+     </footer>  
+     <footer class="bg-light text-center text-lg-start" style="font-family:'Rajdhani';">
+          <div class="text-center text-white p-3" style="background-color: black">
+               © 2021:
+               <a class="text-white text-decoration-none" href="https://Championsports.com/">royalsports.com</a>
+          </div>
+     </footer>
+
+    <script src="{% static 'sports/js/jquery.js' %}"></script>
+    <script src="{% static 'sports/js/popper.js' %}"></script>
+    <script src="{% static 'sports/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'sports/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'sports/js/myscript.js' %}"></script>
+  </body>
+</html>
+
+<!--<img src="images/wall.jpg" alt="Girl in a jacket" width="230" height="150"><br><br>
+     <!https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js         
+        <p><font  face = "Calibri" size = "+1.7" color = "darkgray">We treat each customer as a family member who deserves nothing but the Best of Services.</font></p>-->

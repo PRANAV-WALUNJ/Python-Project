@@ -1,0 +1,29 @@
+{% extends 'sports/index.html' %}
+{% load static %}
+{% block title%}Women's Collection{% endblock title %}
+{% block main-content%}
+    <div class="container w-75" style="font-family: 'Scheherazade', sans-serif;">
+        <div class="row">
+            <div class="content1 flex justify-content-evenly row-6">
+                <div class="img-1 col-xs-12 col-lg-4">
+                    <a href="{% url 'women_cloth' %}">
+                        <img src="{% static 'sports/images/womencloth.jpeg' %}" class="img-thumbnail" height="100%" alt="">
+                        <h2>WOMEN'S CLOTHING</h2>
+                    </a>
+                </div>
+                <div class="img-2 col-lg-4 mx-4">
+                    <a href="{% url 'women_accss' %}">
+                        <img src="{% static 'sports/images/WOMENACCSS1.jpg' %}" class="img-thumbnail" height="75%" alt="">
+                        <h2>WOMEN'S ACCESSORIES</h2>
+                    </a>
+                </div>
+                <div class="img-3 col-lg-4">
+                    <a href="{% url 'women_foot' %}">
+                        <img src="{% static 'sports/images/WOMENFOOT2.jpg' %}" class="img-fluid" height="75%" alt="">
+                        <h2>WOMEN'S FOOTWEAR</h2>
+                    </a>
+                </div>
+            </div>
+        </div>    
+    </div>
+{% endblock main-content%}

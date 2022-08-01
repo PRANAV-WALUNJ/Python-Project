@@ -1,0 +1,10 @@
+{% extends 'sports/index.html' %}
+{% load static %}
+{% block title %}Empty Cart{% endblock title %}
+{% block main-content %}
+<br><br><br>
+<div class="justify-content-center">
+    <h1 class="fw-bold text-center">Your Cart is empty<br><br><br>
+    <img src="{% static 'sports/images/emptycart.png' %}" height="300px" width="450px" alt=""></h1>
+</div>
+{% endblock main-content %}

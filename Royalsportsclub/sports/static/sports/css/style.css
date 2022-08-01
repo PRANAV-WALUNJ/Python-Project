@@ -1,0 +1,378 @@
+.jumbotron {
+    position:relative;
+    overflow:hidden;
+}
+  
+.jumbotron .container {
+    position:relative;
+    z-index:2;
+    
+    background:rgba(0,0,0,0.2);
+    padding:2rem;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;
+}
+  
+.jumbotron-background {
+    object-fit:cover;
+    font-family: 'object-fit: cover;';
+    position:absolute;
+    top:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    opacity:0.5;
+}
+  
+img.blur {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+  
+}
+  
+
+.flex{
+    display: flex;
+}
+
+
+.video{
+      margin-top: 0px;
+}  
+section{
+    text-align: center; 
+    justify-content: center; 
+    font-size: 30px; 
+}
+section.info{
+    margin:30px;
+     width: 95%;
+}
+h1{
+    color: rgb(12, 11, 11);
+}
+p{
+    font-size: 20px;
+}
+.founder:hover{
+    transform: scale(1.1);
+}
+ .container .text .d-grid .btn:hover{
+     transform: scale(1.1);
+     
+ }
+
+.container .cover_1 .container .box{
+    background-color:black; 
+    opacity:0.8;
+}
+.container .cover_1 .container .box .btn:hover{
+    background-color: transparent;
+    transform: scale(1.1);
+}
+.container-fluid .items .item:hover{
+    transform: scale(1.1);
+}
+.container .row .img2 > img:hover{
+    transform: scale(1.1);
+}
+.team .container-fluid .items .member:hover{
+    transform: scale(1.1);
+}   
+.container .form{
+    font-size: larger;
+    font-family: Rajdhani;
+}
+.container .form .buttons > .btn1{
+    margin-left: 400px;
+}
+
+.checked {
+    color: orange;
+  }
+
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 4vw;
+    color: #FFD600;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+.carousel-item .caption {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    background-color: rgba(20,20,20,0.2);
+    height: 100%;
+    color: #fff;
+    cursor: e-resize;
+    padding: 4em 0 0 2em;
+}
+
+.carousel-item .item {
+    background-position: inherit;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    height: 650px;
+}
+
+.carousel-item .item-second .section-btn {
+    background: #292929;
+}
+
+.carousel-item .item-second .section-btn:hover {
+    background: #ffffff;
+}
+
+.carousel-item .item-third .section-btn {
+    background: transparent;
+    border: 1px solid #ffffff;
+}
+
+.carousel-item .item-third .section-btn:hover,
+.carousel-item .item-third .section-btn:focus {
+    background: #ce3232;
+    border-color: transparent;
+    color: #ffffff;
+}
+
+.container {
+    margin-top: 200px
+}
+
+.title {
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+.content {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden
+}
+
+.content .content-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s
+}
+
+.content:hover .content-overlay {
+    opacity: 1
+}
+
+.content-image {
+    width: 100%
+}
+
+img {
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s
+}
+
+.collection span{
+    color:yellowgreen;
+    font-size: 20px;
+    font-weight: 800;
+    padding-left: 5px;
+}
+
+.card{
+    border: none;
+}
+
+.cart {
+    background-color: #494747;
+    color: white;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    width: 100%;
+    height: 39px;
+    padding-top: 9px;
+    box-shadow: 0px 5px 10px #333232
+}
+
+.parallex{
+    background: url(./basketball_ad1.jpg)no-repeat;
+    background-attachment:fixed;
+    background-size:100% 100%;
+    width:100%;
+
+}
+.parallex1{
+    background: url(./Banner3.jpg)no-repeat;
+    background-attachment:fixed;
+    background-size:100% 100%;
+    width:100%;
+
+}
+
+.parallex h1{
+    color:white;
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.parallex p{
+    font-size: 22px;
+}
+
+.btn2{
+    height: 50px;
+    width: 200px;
+    background: transparent;
+    border: 2px solid white;
+    color:white;
+    outline: none;
+    border-radius: 8px;
+}
+
+.btn2:hover{
+    background-color:white;
+    color:yellowgreen;
+    transition:0.3s;
+    border:none;
+}
+
+.btn3{
+    height: 50px;
+    width: 200px;
+    background-color: white;
+    border: none;
+    color:yellowgreen;
+    outline: none;
+    border-radius: 8px;
+}
+
+.btn3:hover{
+    background-color:rgb(47,42,42);
+    color:white;
+    border:none;
+    outline:none;
+    transition:0.3s;
+}
+
+.owl-carousel .item{
+    /* border: 1px solid black; */
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;;
+}
+   
+.owl-next{
+    float:right;
+}
+.owl-prev{
+    float:left;
+}
+.owl-prev span{
+    font-size: 24px;
+    font-weight: bold;
+}
+.owl-next span{
+    font-size: 24px;
+    font-weight: bold;
+}
+   

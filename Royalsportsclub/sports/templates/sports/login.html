@@ -1,0 +1,47 @@
+{% extends 'sports/index.html'%}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+  <br><br>
+  <div class="container">
+    <div class="form shadow w-50 mx-auto">
+      <form action="" method="post" class="shadow p-5">
+        <h1 class="text-center text-uppercase" style="font-family: 'Garamond', sans-serif;">Login</h1>
+        <hr class="w-75 mx-auto">
+        <br>
+        {% csrf_token %}
+        {% for fm in form %}
+          <div class="form-group">
+            {{fm.label_tag}} {{fm}} <small class="text-danger"> {{fm.errors|striptags}}</small><br>
+          </div>     
+        {% endfor %}
+    
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+          {% endfor %}
+        {% endif %}
+    <br>
+     
+   
+            
+            <div class="w-75  mx-auto mb-4">
+             <small><a href="#" class="text-decoration-none text-danger fw-bold">Forgot Password?</a></small><br>
+              <p> <small>Dosen't have an account ? </small><a class="text-danger text-decoration-none fw-bold" href="{% url 'signup' %}">Signup</a></p>
+            </div>
+            <div class="btn-grp w-75 mx-auto mb-4 row text-center">
+              <input type="submit" class="btn1 btn btn-danger m-2 w-25 fs-5" value="Login">
+              <div class="btn btn btn-dark m-2 w-25 fs-5"><a href="#" class="text-white text-decoration-none">Cancel</a></div>
+            </div>
+
+            <br>
+            
+        </form>
+
+    </div>
+    
+   </form>
+
+  </div>
+{% endblock main-content %}

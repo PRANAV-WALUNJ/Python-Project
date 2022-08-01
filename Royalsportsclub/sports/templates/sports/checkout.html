@@ -1,0 +1,135 @@
+{% extends 'sports/index.html'%} 
+{% load static %} 
+{% block title %}Checkout{%endblock title %} 
+{% block main-content %} <br /><br />
+<div class="container my-5" style="font-family: Rajdhani">
+  <div class="row">
+    <div class="col-sm-8">
+      <h1 class="text-center" style="font-family: Scheherazade">Order Summary</h1>
+      <hr class="mx-auto w-100" />
+      {% for item in cart_items %}
+      <div class="card p-2">
+        <div class="card-body">
+          <div class="row mb-4 justify-content-around">
+            <div class="col-sm-4 text-center align-self-center">
+              <img
+                src="{{item.product.product_image.url}}"
+                alt=""
+                srcset=""
+                class="img-fluid img-thumbnail shadow-sm"
+                height="150"
+                width="100%"
+              />
+            </div>
+            <div class="col-sm-7">
+              <div>
+                <h4 class="fw-bold">{{item.product.title}}</h4>
+                <h6 class="mb-2 text-muted fs-5">
+                  Quantity : {{item.quantity}}
+                </h6>
+                <h6 class="mb-2 fs-5">Price : {{item.total_cost}}/-</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      <h4 class=" my-3 fw-bold d-flex justify-content-end">
+        Total Amount: {{amount}} + Rs.70 = {{totalamount}}
+      </h4>
+      <div class="">
+      <h4>Terms and Conditions:</h4>
+      <p class="text-muted">
+        <b>Price:</b> Prices recorded in this order are not subject to increase.
+        No additional amounts shall be chargeable to Buyer because of taxes or
+        excises, presently of hereafter levied on Seller.<br />
+        <b>Payment:</b> Terms of payments are as previously arranged, or if
+        specified in this order, then as so specified.<br />
+        <b>Taxes:</b> Seller accepts liability for payment of all payroll and
+        Social Security taxes and all other federal, state, or local taxes now
+        or hereinafter imposed by any government authority.<br />
+        <b>Cancellation:</b> Buyer reserves the right at any time and from time
+        to time without cause, to cancel all or any part of the undelivered
+        portion of this order by notice to Seller.<br />
+        <b>Warranty:</b> Goods delivered (whether paid for or not) are subject
+        to inspection, testing, and approval by Buyer before acceptance.
+      </p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h1 class="text-center" style="font-family: Scheherazade">
+        Select Shipping Address
+      </h1>
+      <hr class="mx-auto w-100" />
+      <form action="/paymentdone" id="myform">
+        {% for ad in add %}
+        <div class="card">
+          <div class="card-body">
+            <h5 class="fw-bold">{{ad.name}}</h5>
+            <p>{{ad.locality}}, {{ad.city}}, {{ad.state}} - {{ad.zipcode}}</p>
+          </div>
+        </div>
+        <div class="form-check mt-2 mb-5">
+          <input
+            class="form-checkinput"
+            type="radio"
+            name="custid"
+            id="custadd{{forloop.counter}}"
+            value="{{ad.id}}"
+          />
+          <label
+            class="form-check-label fwbold"
+            for="custadd{{forloop.counter}}"
+            >Address: {{forloop.counter}}
+          </label>
+        </div>
+        {% endfor %}
+        <div class="btn-grp w-100 mx-auto mb-4 row text-center">
+         <!--<button value="submit" class="btn2 btn btn-danger m-2 w-50 fs-5"><a href="#" class="text-white text-decoration-none">Continue</a></button>-->
+          <div id="paypal-button-container"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<br /><br /><br />
+{% endblock main-content%}
+
+{% block payment-gateway %}
+
+<!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=Adr4vGohf2pcSOPF9jk7BI-bcsN6ie6zOWJjghMK1oqmD2xuXInuWgYzO-AKuGN5_cHvXEC-CtX72xGQ&currency=USD"></script>
+
+    <script>
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '{{totalamount}}'
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    // Show a success message to the buyer
+                    alert('Transaction completed by {{request.user}}!!');
+                    document.getElementById("myform").submit();
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+{% endblock payment-gateway %}
+
+
+<!--    by '+ details.payer.name.given_name +'  -->
